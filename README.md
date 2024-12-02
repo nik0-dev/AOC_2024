@@ -4,4 +4,4 @@ Inputs are downloaded using [aoc-cli](https://github.com/scarvalhojr/aoc-cli) (a
   
 The functions will look shorter because the IO is handled by the template and then passed as a &str to each function for a specific day.
 
-The Option<u32> return in the case of None is used to signify any errors or to create the initial function stub for the templates.
+The Option\<u32\> return in the case of None is used to signify any errors or to create the initial function stub for the templates.
