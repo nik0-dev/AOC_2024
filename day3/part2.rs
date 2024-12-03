@@ -1,4 +1,4 @@
-ub fn part_two(input: &str) -> Option<u32> {
+pub fn part_two(input: &str) -> Option<u32> {
     use regex::Regex;
 
     let expr = Regex::new(r"do\(\)|don't\(\)|mul\((\d+),(\d+)\)").unwrap();    
