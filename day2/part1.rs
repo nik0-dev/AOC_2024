@@ -1,3 +1,6 @@
+// note - the following functions are defined in helpers.rs:
+// >>> is_safe_level()
+
 pub fn part_one(input: &str) -> Option<u32> {
     let mut output : u32 = 0;
     
@@ -7,7 +10,6 @@ pub fn part_one(input: &str) -> Option<u32> {
 
         for token in tokens { nums.push(token.parse().expect("Invalid Token.")); }
 
-        // defined in helpers.rs
         if is_safe_level(nums) { output += 1; }
     }
 
