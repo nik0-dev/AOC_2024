@@ -1,4 +1,4 @@
-pub fn part_two(input: &str) -> Option<u32> {
+ub fn part_two(input: &str) -> Option<u32> {
     use regex::Regex;
 
     let expr = Regex::new(r"do\(\)|don't\(\)|mul\((\d+),(\d+)\)").unwrap();    
@@ -10,16 +10,19 @@ pub fn part_two(input: &str) -> Option<u32> {
             let (op_left, op_right) = (caps.get(1), caps.get(2));
 
             if op_left.is_some() && op_right.is_some() && do_mul {
-                let op1 = caps.get(1).unwrap().as_str();
-                let op2 = caps.get(2).unwrap().as_str();
+                let op_left : u32 = op_left.unwrap().as_str().parse::<u32>().expect("Invalid Token");
+                let op_right : u32 = op_right.unwrap().as_str().parse::<u32>().expect("Invalid Token");
 
-                op1.parse::<u32>().expect("Invalid Token") * op2.parse::<u32>().expect("Invalid Token")
+                return op_left * op_right;
             } else {
                 let do_mul_str = caps.get(0).unwrap().as_str();
 
-                if do_mul_str == "do()" { do_mul = true; }
-                if do_mul_str == "don't()" { do_mul = false; }
-                
+                match do_mul_str {
+                    "do()" => do_mul = true,
+                    "don't()" => do_mul = false,
+                    _ => ()
+                };
+
                 return 0;
             }
         })
