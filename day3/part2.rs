@@ -7,6 +7,7 @@ pub fn part_two(input: &str) -> Option<u32> {
         .map(|caps| 
         {         
             let (op_left, op_right) = (caps.get(1), caps.get(2));
+            
             // if both subcaptures exist it is a mul() fn, only works if do_mul is enabled 
             if op_left.is_some() && op_right.is_some() && do_mul {
                 let op_left : u32 = op_left.unwrap().as_str().parse().unwrap();
